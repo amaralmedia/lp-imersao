@@ -1,0 +1,448 @@
+/* --- RESET BÁSICO E FONTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+:root {
+    --color-black: #121212; /* Um cinza-chumbo profundo, mais suave que o preto puro */
+    --color-white: #FFFFFF;
+    --color-gold: #C0A062; /* Um dourado mais sóbrio e elegante */
+    --color-section-bg: #1A1A1A; /* Fundo para seções de destaque */
+    --text-color: #EAEAEA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--color-black);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- ESTRUTURA E CONTAINERS --- */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- CABEÇALHO E TÍTULOS --- */
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.section-title .highlight {
+    color: var(--color-gold);
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    opacity: 0.9;
+}
+
+/* --- BOTÃO DE AÇÃO (CTA) --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(192, 160, 98, 0.3);
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(192, 160, 98, 0.5);
+}
+
+.cta-subtext {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* --- SEÇÃO HERO (PRIMEIRA DOBRA) --- */
+.hero {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.logo-image {
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.hero .main-headline {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero .hero-subheadline {
+    font-size: 1.6rem;
+    font-weight: 400; /* Peso mais leve que o título principal */
+    color: var(--color-gold);
+    opacity: 0.95;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding-top: 56.25%; /* Proporção 16:9 */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* --- NOVA SEÇÃO: O QUE FAZ UM STORYMAKER --- */
+.about-storymaker-section {
+    background-color: var(--color-section-bg);
+}
+
+.about-storymaker-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    text-align: left;
+    margin-top: 60px;
+}
+
+.about-storymaker-grid .text-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.about-storymaker-grid .text-content p {
+    margin-bottom: 15px;
+}
+
+.about-storymaker-grid .image-content img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* --- SEÇÃO DEPOIMENTOS --- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.testimonial-card {
+    background-color: var(--color-section-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+.testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonial-card .author {
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* --- SEÇÃO "PARA QUEM É / NÃO É" --- */
+.who-is-it-for-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.who-is-it-for-grid h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.benefits-list {
+    list-style: none;
+}
+
+.benefits-list li {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.benefits-list .icon {
+    color: var(--color-gold);
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.benefits-list .icon.negative {
+    color: #ff6b6b; /* Um tom de vermelho para o 'não' */
+}
+
+/* --- SEÇÃO DE CONTEÚDO (MÓDULOS) --- */
+.content-section {
+    background-color: var(--color-section-bg);
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    text-align: left;
+}
+
+.module-card {
+    background-color: #242424;
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.module-card .module-icon {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
+.module-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--color-gold);
+}
+
+.module-card p {
+    font-size: 0.95rem;
+}
+
+/* --- SEÇÃO DE BÔNUS --- */
+.bonus-card {
+    background-color: rgba(192, 160, 98, 0.05);
+    border: 2px dashed var(--color-gold);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.bonus-card h3 {
+    color: var(--color-gold);
+    margin-bottom: 10px;
+}
+
+/* --- SEÇÃO DE OFERTA/PREÇO --- */
+.offer-section {
+    background-color: var(--color-section-bg);
+}
+
+.price-box {
+    background-color: var(--color-black);
+    border: 2px solid var(--color-gold);
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(192, 160, 98, 0.2);
+}
+
+.price-box .event-date {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.price-box .scarcity-badge {
+    background-color: #c0392b; /* Um tom de vermelho mais sóbrio e premium */
+    color: var(--color-white);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.price-box .price {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--color-gold);
+    margin: 10px 0;
+}
+
+.price-box .installments {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.payment-methods-img {
+    max-width: 280px;
+    margin-top: 20px;
+    display: block; /* Garante que a imagem ocupe sua própria linha */
+    margin-left: auto; /* Centraliza a imagem */
+    margin-right: auto; /* Centraliza a imagem */
+    opacity: 0.9;
+}
+
+/* --- SEÇÃO GARANTIA --- */
+.guarantee-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 800px;
+    margin: 60px auto 0 auto;
+    flex-wrap: wrap;
+}
+
+.guarantee-box img {
+    max-width: 150px;
+}
+
+.guarantee-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+/* --- SEÇÃO FAQ (ACORDEÃO) --- */
+.faq-item {
+    background-color: var(--color-section-bg);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 2rem;
+    color: var(--color-gold);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+    text-align: left;
+}
+
+.faq-answer p {
+    padding: 0 20px 20px 20px;
+}
+
+/* --- RODAPÉ --- */
+.footer {
+    background-color: #0A0A0A;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer p {
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.footer a {
+    color: var(--color-white);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    color: var(--color-gold);
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+    .hero .main-headline {
+        font-size: 2.5rem;
+    }
+    .guarantee-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-storymaker-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .who-is-it-for-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
