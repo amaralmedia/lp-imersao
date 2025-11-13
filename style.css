@@ -183,14 +183,17 @@ body {
     margin-bottom: 20px;
 }
 
-.testimonial-card p {
-    font-style: italic;
+.testimonial-card .testimonial-info {
     margin-bottom: 20px;
 }
 
 .testimonial-card .author {
-    font-weight: 700;
     font-style: normal;
+    margin-top: 10px;
+}
+
+.testimonial-value {
+    color: var(--color-gold);
 }
 
 /* --- SEÇÃO "PARA QUEM É / NÃO É" --- */
@@ -244,13 +247,13 @@ body {
     padding: 25px;
     border-radius: 8px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
 }
 
 .module-card .module-icon {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     flex-shrink: 0; /* Impede que o ícone encolha */
 }
 
