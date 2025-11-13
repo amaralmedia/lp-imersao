@@ -55,18 +55,31 @@ body {
 /* --- BOTÃO DE AÇÃO (CTA) --- */
 .cta-button {
     display: inline-block;
-    background-color: var(--color-gold);
+    background: radial-gradient(circle, #DDCB97, var(--color-gold)); /* Gradiente sutil para dar profundidade */
     color: var(--color-black);
     padding: 20px 40px;
     font-size: 1.2rem;
     font-weight: 700;
     text-decoration: none;
     text-transform: uppercase;
-    border-radius: 8px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(192, 160, 98, 0.3);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(192, 160, 98, 0.4);
+    animation: pulse-cta 2.5s infinite; /* Animação de pulso */
+}
+
+@keyframes pulse-cta {
+    0% {
+        box-shadow: 0 0 0 0 rgba(192, 160, 98, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 12px rgba(192, 160, 98, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(192, 160, 98, 0);
+    }
 }
 
 .cta-button:hover {
@@ -88,7 +101,7 @@ body {
 }
 
 .logo-image {
-    max-width: 300px;
+    max-width: 100px;
     height: auto;
     margin-bottom: 20px;
 }
@@ -129,34 +142,67 @@ body {
     border: 0;
 }
 
-/* --- NOVA SEÇÃO: O QUE FAZ UM STORYMAKER --- */
-.about-storymaker-section {
+/* --- BADGE DE DATA DO EVENTO (ESTILO CALENDÁRIO) --- */
+.event-date-badge {
+    display: inline-block;
     background-color: var(--color-section-bg);
+    border: 2px solid var(--color-gold);
+    border-radius: 10px;
+    margin-top: 25px;
+    width: 240px; /* Um pouco mais largo */
+    padding: 10px; /* Padding vertical menor */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
-.about-storymaker-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-    text-align: left;
-    margin-top: 60px;
-}
-
-.about-storymaker-grid .text-content h3 {
-    font-size: 2rem;
+.event-date-badge .month {
+    display: block;
+    background-color: var(--color-gold);
+    color: var(--color-black);
     font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.3;
+    padding: 5px;
+    border-radius: 6px 6px 0 0;
+    margin: -10px -10px 8px -10px; /* Puxa para as bordas do container */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.event-date-badge .day-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-white);
+    line-height: 1;
+}
+
+.event-date-badge .day-label {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.event-date-badge .day-number {
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+
+.event-date-badge .time {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 2px;
+    opacity: 0.9;
 }
 
 .about-storymaker-grid .text-content p {
     margin-bottom: 15px;
+    font-size: 1.25rem; /* Ajusta a fonte para ~20px no desktop */
 }
 
 .about-storymaker-grid .image-content img {
     width: 100%;
     border-radius: 10px;
+    width: 80%; /* Ajusta a largura da imagem */
+    margin: 0 auto; /* Centraliza a imagem no seu container */
 }
 
 /* --- SEÇÃO DEPOIMENTOS --- */
@@ -296,6 +342,16 @@ body {
     box-shadow: 0 0 30px rgba(192, 160, 98, 0.2);
 }
 
+/* Ajuste do badge de data dentro da caixa de preço */
+.price-box .event-date-badge {
+    margin-top: 0;
+    margin-bottom: 25px;
+    margin-left: auto; /* Centraliza o badge horizontalmente */
+    margin-right: auto; /* Centraliza o badge horizontalmente */
+    display: block; /* Garante que o badge ocupe sua própria linha */
+    box-shadow: none;
+}
+
 .price-box .event-date {
     font-size: 1.1rem;
     font-weight: 700;
@@ -305,33 +361,98 @@ body {
 }
 
 .price-box .scarcity-badge {
-    background-color: #c0392b; /* Um tom de vermelho mais sóbrio e premium */
+    background-color: #c0392b;
     color: var(--color-white);
-    padding: 8px 15px;
-    border-radius: 50px;
+    padding: 12px 35px; /* Aumenta o padding para dar espaço aos cortes */
     font-weight: 700;
     font-size: 1rem;
     text-transform: uppercase;
     display: inline-block;
     margin-bottom: 30px;
     letter-spacing: 1px;
+    position: relative; /* Essencial para posicionar os pseudo-elementos */
+    border-top: 2px dashed rgba(255, 255, 255, 0.7);
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.7);
 }
 
-.price-box .price {
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: var(--color-gold);
-    margin: 10px 0;
+/* Criando os cortes circulares do "ticket" */
+.price-box .scarcity-badge::before,
+.price-box .scarcity-badge::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--color-black); /* Cor de fundo da price-box para simular o corte */
 }
 
-.price-box .installments {
+.price-box .scarcity-badge::before {
+    left: -10px; /* Metade da largura para ficar no meio da borda */
+}
+
+.price-box .scarcity-badge::after {
+    right: -10px; /* Metade da largura para ficar no meio da borda */
+}
+
+.price-box .old-price {
+    font-size: 1.5rem; /* Fonte maior */
+    font-weight: 700;
+    color: #ff6b6b; /* Cor vermelha */
+    margin-bottom: 5px;
+}
+
+.price-box .old-price s {
+    opacity: 0.8;
+}
+
+.price-box .price-intro {
+    margin-bottom: 10px;
+}
+
+.price-box .main-price-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinha verticalmente a coluna e o preço */
+    gap: 15px; /* Aumenta o espaço entre os elementos */
+    margin: 20px 0;
+}
+
+.price-box .price-prefix {
+    display: flex;
+    flex-direction: column; /* Empilha os itens */
+    align-items: flex-start; /* Alinha à esquerda */
+    line-height: 1.1;
+}
+
+.price-box .installments-text {
     font-size: 1.5rem;
-    margin-bottom: 30px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.price-box .currency-symbol {
+    font-size: 2.5rem; /* Tamanho um pouco maior para o R$ */
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.price-box .price-amount {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--color-gold);
+}
+
+.price-box .cash-price {
+    margin-top: 5px;
+    margin-bottom: 30px; /* Espaçamento antes do botão */
 }
 
 .payment-methods-img {
     max-width: 280px;
-    margin-top: 20px;
+    margin-top: 30px;
     display: block; /* Garante que a imagem ocupe sua própria linha */
     margin-left: auto; /* Centraliza a imagem */
     margin-right: auto; /* Centraliza a imagem */
@@ -345,12 +466,12 @@ body {
     justify-content: center;
     gap: 30px;
     max-width: 800px;
-    margin: 60px auto 0 auto;
+    margin: 40px auto 0 auto;
     flex-wrap: wrap;
 }
 
 .guarantee-box img {
-    max-width: 150px;
+    max-width: 300px;
 }
 
 .guarantee-text h3 {
