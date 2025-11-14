@@ -90,7 +90,7 @@ body {
 .cta-subtext {
     display: block;
     margin-top: 15px;
-    font-size: 0.9rem;
+    font-size: 18px;
     opacity: 0.8;
 }
 
@@ -193,6 +193,15 @@ body {
     opacity: 0.9;
 }
 
+/* --- 2. SEÇÃO O QUE É STORYMAKER --- */
+.about-storymaker-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Cria duas colunas de largura igual */
+    gap: 40px; /* Espaçamento entre o texto e a imagem */
+    align-items: center; /* Alinha verticalmente o texto e a imagem */
+    margin-top: 40px;
+}
+
 .about-storymaker-grid .text-content p {
     margin-bottom: 15px;
     font-size: 1.25rem; /* Ajusta a fonte para ~20px no desktop */
@@ -215,22 +224,27 @@ body {
 
 .testimonial-card {
     background-color: var(--color-section-bg);
-    padding: 30px;
     border-radius: 10px;
     border: 1px solid #333;
-    text-align: left;
+    text-align: center; /* Centraliza o texto abaixo da imagem */
+    overflow: hidden; /* Garante que a imagem não ultrapasse as bordas arredondadas */
 }
 
 .testimonial-card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
+    width: 100%;
+    height: 400px; /* Define uma altura fixa para a imagem */
+    object-fit: cover; /* Faz a imagem cobrir o espaço, cortando o excesso */
+    display: block; /* Remove espaços extras abaixo da imagem */
+}
+
+.testimonial-card-content {
+    padding: 20px; /* Adiciona padding apenas ao conteúdo de texto */
+    text-align: left;
 }
 
 .testimonial-card .testimonial-info {
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .testimonial-card .author {
@@ -352,7 +366,22 @@ body {
     box-shadow: none;
 }
 
-.price-box .event-date {
+.scarcity-badge {
+    background-color: #c0392b;
+    color: var(--color-white);
+    padding: 12px 35px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    position: relative; /* Essencial para posicionar os "cortes" do ticket */
+    border-top: 2px dashed rgba(255, 255, 255, 0.7);
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.7);
+}
+
+.event-date {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 20px;
@@ -360,40 +389,58 @@ body {
     border-radius: 5px;
 }
 
-.price-box .scarcity-badge {
-    background-color: #c0392b;
-    color: var(--color-white);
-    padding: 12px 35px; /* Aumenta o padding para dar espaço aos cortes */
-    font-weight: 700;
-    font-size: 1rem;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
-    position: relative; /* Essencial para posicionar os pseudo-elementos */
-    border-top: 2px dashed rgba(255, 255, 255, 0.7);
-    border-bottom: 2px dashed rgba(255, 255, 255, 0.7);
-}
+.price-box .scarcity-badge { /* Regra mantida para possíveis estilos futuros dentro da caixa */ }
 
 /* Criando os cortes circulares do "ticket" */
-.price-box .scarcity-badge::before,
-.price-box .scarcity-badge::after {
+.scarcity-badge::before,
+.scarcity-badge::after {
     content: '';
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 20px;
     height: 20px;
-    border-radius: 50%;
-    background-color: var(--color-black); /* Cor de fundo da price-box para simular o corte */
+    border-radius: 50%; /* Cor de fundo da seção para simular o corte */
+    background-color: var(--color-section-bg);
 }
 
-.price-box .scarcity-badge::before {
+.scarcity-badge::before {
     left: -10px; /* Metade da largura para ficar no meio da borda */
 }
 
-.price-box .scarcity-badge::after {
+.scarcity-badge::after {
     right: -10px; /* Metade da largura para ficar no meio da borda */
+}
+
+/* --- BARRA DE PROGRESSO DE VAGAS --- */
+.progress-bar-container {
+    position: relative; /* Para posicionar o texto dentro */
+    max-width: 350px;
+    margin: 30px auto 0 auto; /* Margem ajustada para a nova posição no final da seção */
+    background-color: #333;
+    border-radius: 50px;
+    height: 28px; /* Aumenta a altura da barra */
+    overflow: hidden;
+    border: 1px solid #555;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%; /* Começa com 0, será preenchido via JS */
+    background-color: #c0392b; /* Cor vermelha solicitada */
+    border-radius: 50px;
+    transition: width 0.8s ease-in-out;
+}
+
+.progress-bar-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-white);
+    font-size: 0.9rem; /* Aumenta o tamanho da fonte */
+    font-weight: 700;
+    white-space: nowrap; /* Impede que o texto quebre em duas linhas */
 }
 
 .price-box .old-price {
