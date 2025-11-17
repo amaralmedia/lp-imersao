@@ -142,6 +142,45 @@ body {
     border: 0;
 }
 
+/* --- OTIMIZAÇÃO: ESTILOS PARA LAZY-LOADING DO YOUTUBE --- */
+.lazy-youtube {
+    cursor: pointer;
+    background-color: #000;
+    /* Imagem de thumbnail de alta qualidade do YouTube */
+    background-image: url('https://i.ytimg.com/vi_webp/vRjXkX87aqA/maxresdefault.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lazy-youtube .play-button {
+    width: 90px;
+    height: 60px;
+    background-color: rgba(255, 0, 0, 0.8);
+    border-radius: 10px;
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.lazy-youtube:hover .play-button {
+    background-color: rgb(255, 0, 0);
+}
+
+/* Triângulo do "play" feito com CSS */
+.lazy-youtube .play-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 26px;
+    border-color: transparent transparent transparent #fff;
+}
 /* --- BADGE DE DATA DO EVENTO (ESTILO CALENDÁRIO) --- */
 .event-date-badge {
     display: inline-block;

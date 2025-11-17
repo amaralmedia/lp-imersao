@@ -69,4 +69,28 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // --- LÓGICA PARA LAZY-LOADING DO VÍDEO DO YOUTUBE ---
+    const lazyYouTubeContainers = document.querySelectorAll('.lazy-youtube');
+
+    lazyYouTubeContainers.forEach(container => {
+        container.addEventListener('click', () => {
+            const youtubeId = container.dataset.youtubeId;
+            if (youtubeId) {
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allowfullscreen', '');
+                // Adiciona parâmetros para autoplay e controles
+                iframe.setAttribute('src', `https://www.youtube.com/embed/${youtubeId}?rel=0&showinfo=0&autoplay=1`);
+                
+                // Remove o conteúdo do placeholder (botão de play)
+                container.innerHTML = '';
+                // Adiciona o iframe
+                container.appendChild(iframe);
+                // Remove a classe para não adicionar o evento de clique novamente
+                container.classList.remove('lazy-youtube');
+            }
+        }, { once: true }); // O evento só precisa ser disparado uma vez
+    });
+
 });
