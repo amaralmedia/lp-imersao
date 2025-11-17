@@ -160,7 +160,10 @@ body {
     height: 60px;
     background-color: rgba(255, 0, 0, 0.8);
     border-radius: 10px;
-    position: relative;
+    position: absolute; /* Garante o posicionamento relativo ao container */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o botão perfeitamente */
     transition: background-color 0.2s ease;
 }
 

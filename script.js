@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (youtubeId) {
                 const iframe = document.createElement('iframe');
                 iframe.setAttribute('frameborder', '0');
-                iframe.setAttribute('allowfullscreen', '');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
                 // Adiciona parâmetros para autoplay e controles
                 iframe.setAttribute('src', `https://www.youtube.com/embed/${youtubeId}?rel=0&showinfo=0&autoplay=1`);
                 
