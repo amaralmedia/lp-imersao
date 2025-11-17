@@ -96,14 +96,14 @@ body {
 
 /* --- SEÇÃO HERO (PRIMEIRA DOBRA) --- */
 .hero {
-    padding-top: 40px;
+    padding-top: 10px;
     padding-bottom: 60px;
 }
 
 .logo-image {
-    max-width: 100px;
+    max-width: 70px;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .hero .main-headline {
@@ -198,7 +198,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Cria duas colunas de largura igual */
     gap: 40px; /* Espaçamento entre o texto e a imagem */
-    align-items: center; /* Alinha verticalmente o texto e a imagem */
+    align-items: left; /* Alinha verticalmente o texto e a imagem */
     margin-top: 40px;
 }
 
@@ -603,10 +603,14 @@ body {
     }
     .hero .main-headline {
         font-size: 2.5rem;
+        font-size: 2rem; /* 32px */
     }
     .guarantee-box {
         flex-direction: column;
         text-align: center;
+    }
+    .hero .hero-subheadline {
+        font-size: 1.125rem; /* 18px */
     }
     .about-storymaker-grid {
         grid-template-columns: 1fr;
