@@ -94,10 +94,20 @@ body {
     opacity: 0.8;
 }
 
+/* Grupo de CTA na seção Hero */
+.cta-group {
+    text-align: center;
+}
+
 /* --- SEÇÃO HERO (PRIMEIRA DOBRA) --- */
 .hero {
     padding-top: 10px;
     padding-bottom: 60px;
+}
+
+.hero-logo-container {
+    display: block;
+    grid-column: 1 / -1; /* Ocupa todas as colunas do grid */
 }
 
 .logo-image {
@@ -107,82 +117,20 @@ body {
 }
 
 .hero .main-headline {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 25px;
 }
 
 .hero .hero-subheadline {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: 400; /* Peso mais leve que o título principal */
     color: var(--color-gold);
     opacity: 0.95;
     margin-top: 10px;
+    margin-bottom: 30px; /* Aumenta o espaço antes do botão CTA */
     line-height: 1.4;
-}
-
-.video-container {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    margin: 40px auto;
-    padding-top: 56.25%; /* Proporção 16:9 */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-/* --- OTIMIZAÇÃO: ESTILOS PARA LAZY-LOADING DO YOUTUBE --- */
-.lazy-youtube {
-    cursor: pointer;
-    background-color: #000;
-    /* Imagem de thumbnail de alta qualidade do YouTube */
-    background-image: url('https://i.ibb.co/4w8BR02W/FOTO-LARA-NOTIFICAC-A-O.webp');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.lazy-youtube .play-button {
-    width: 90px;
-    height: 60px;
-    background-color: rgba(255, 0, 0, 0.8);
-    border-radius: 10px;
-    position: absolute; /* Garante o posicionamento relativo ao container */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centraliza o botão perfeitamente */
-    transition: background-color 0.2s ease;
-}
-
-.lazy-youtube:hover .play-button {
-    background-color: rgb(255, 0, 0);
-}
-
-/* Triângulo do "play" feito com CSS */
-.lazy-youtube .play-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-40%, -50%);
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 15px 0 15px 26px;
-    border-color: transparent transparent transparent #fff;
 }
 /* --- BADGE DE DATA DO EVENTO (ESTILO CALENDÁRIO) --- */
 .event-date-badge {
@@ -236,25 +184,51 @@ body {
 }
 
 /* --- 2. SEÇÃO O QUE É STORYMAKER --- */
+.about-storymaker-section {
+    padding-bottom: 120px; /* Aumenta o espaço inferior para acomodar as imagens */
+}
+
 .about-storymaker-grid {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Cria duas colunas de largura igual */
     gap: 40px; /* Espaçamento entre o texto e a imagem */
     align-items: center; /* Alinha verticalmente o texto e a imagem */
     margin-top: 40px;
+    text-align: left;
 }
 
-.about-storymaker-grid .text-content p {
+.text-content p {
     margin-bottom: 15px;
     font-size: 1.25rem; /* Ajusta a fonte para ~20px no desktop */
 }
-.about-storymaker-grid .image-content picture,
-.about-storymaker-grid .image-content img {
-    width: 100%;
-    border-radius: 10px;
-    width: 80%; /* Ajusta a largura da imagem */
-    margin: 0 auto; /* Centraliza a imagem no seu container */
+
+/* Estilos para o carrossel de imagens sobrepostas */
+.image-stack-container {
+    position: relative;
+    height: 500px; /* Altura do container para as imagens */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.stacked-image {
+    position: absolute;
+    height: 80%; /* Altura da imagem relativa ao container */
+    width: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    /* A transição é movida para o hover do container para suavizar a entrada e saída */
+}
+
+.image-stack-container:hover .stacked-image {
+    transition: transform 0.1s linear; /* Transição rápida para seguir o mouse */
+}
+
+/* Rotação inicial mais sutil */
+.image-1 { z-index: 2; top: 0; left: 0; transform: rotate(-10deg); } /* Superior Esquerda */
+.image-2 { z-index: 3; top: 50%; right: 0; transform: translateY(-50%) rotate(5deg); } /* Meio Direita */
+.image-3 { z-index: 1; bottom: -50px; left: 25%; transform: rotate(8deg); } /* Inferior Esquerda, mais para baixo */
 
 /* --- SEÇÃO DEPOIMENTOS --- */
 .testimonials-grid {
@@ -299,6 +273,36 @@ body {
     color: var(--color-gold);
 }
 
+/* --- NOVA SEÇÃO MENTORA --- */
+.mentor-section {
+    background-color: var(--color-section-bg);
+}
+
+.mentor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Coluna da imagem menor que a do texto */
+    gap: 50px;
+    align-items: center;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.mentor-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.mentor-text h3 {
+    font-size: 2rem;
+    color: var(--color-gold);
+    margin-bottom: 20px;
+}
+
+.mentor-text p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
 /* --- SEÇÃO "PARA QUEM É / NÃO É" --- */
 .who-is-it-for-grid {
     display: grid;
@@ -459,7 +463,7 @@ body {
 .progress-bar-container {
     position: relative; /* Para posicionar o texto dentro */
     max-width: 350px;
-    margin: 30px auto 0 auto; /* Margem ajustada para a nova posição no final da seção */
+    margin: 30px auto 0; /* Centraliza horizontalmente */
     background-color: #333;
     border-radius: 50px;
     height: 28px; /* Aumenta a altura da barra */
@@ -664,8 +668,67 @@ body {
         grid-template-columns: 1fr;
         text-align: center;
     }
+    .text-content {
+        margin-bottom: 40px;
+    }
+    .image-stack-container {
+        height: 400px; /* Altura menor para mobile */
+    }
     .who-is-it-for-grid {
         grid-template-columns: 1fr;
         gap: 50px;
+    }
+    .mentor-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+}
+
+/* Estilos para o novo layout da seção Hero */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas de largura igual */
+    align-items: center;
+    gap: 40px; /* Espaçamento entre as colunas */
+}
+
+.hero-text-content {
+    text-align: left; /* Alinha o texto à esquerda na coluna */
+}
+
+.hero-image-content {
+    align-self: stretch; /* Faz a coluna da imagem ocupar toda a altura */
+    /* Combina gradientes para um fade suave em todas as direções */
+    background-image: 
+        linear-gradient(to right, var(--color-black) 0%, transparent 50%), /* Fade da esquerda para o centro */
+        linear-gradient(to left, var(--color-black) 0%, transparent 50%),  /* Fade da direita para o centro */
+        url('https://i.ibb.co/4w8BR02W/FOTO-LARA-NOTIFICAC-A-O.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Ajustes para telas menores (tablets e celulares) */
+@media (max-width: 992px) {
+    .hero {
+        padding-top: 40px; /* Restaura um espaçamento no topo */
+    }
+    .hero-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        text-align: center; /* Centraliza todo o conteúdo */
+    }
+    .hero-logo-container {
+        display: none; /* Esconde o logo no mobile */
+    }
+    .hero-text-content {
+        text-align: center; /* Garante que o texto também fique centralizado */
+        margin-top: 0; /* Remove a margem que empurrava o texto para baixo */
+    }
+    .hero-image-content {
+        display: none; /* Esconde a imagem no mobile */
+    }
+    .main-headline, .hero-subheadline {
+        margin-left: auto;
+        margin-right: auto;
     }
 }

@@ -93,4 +93,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { once: true }); // O evento só precisa ser disparado uma vez
     });
 
+    // --- CORREÇÃO: EFEITO PARALLAX INTERATIVO NA SEÇÃO "O QUE É STORYMAKER" ---
+    const parallaxContainer = document.querySelector('.image-stack-container');
+    if (parallaxContainer) {
+        const image1 = parallaxContainer.querySelector('.image-1');
+        const image2 = parallaxContainer.querySelector('.image-2');
+        const image3 = parallaxContainer.querySelector('.image-3');
+
+        const handleMouseMove = (e) => {
+            const rect = parallaxContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            // Movimenta cada imagem com uma intensidade diferente para dar profundidade
+            if (image1) image1.style.transform = `translate(${-x * 0.04}px, ${-y * 0.04}px) rotate(-10deg)`;
+            if (image2) image2.style.transform = `translate(${-x * 0.06}px, ${-y * 0.06}px) translateY(-50%) rotate(5deg)`;
+            if (image3) image3.style.transform = `translate(${-x * 0.03}px, ${-y * 0.03}px) rotate(8deg)`;
+        };
+
+        const handleMouseLeave = () => {
+            // Retorna as imagens à posição original quando o mouse sai
+            if (image1) image1.style.transform = `rotate(-10deg)`;
+            if (image2) image2.style.transform = `translateY(-50%) rotate(5deg)`;
+            if (image3) image3.style.transform = `rotate(8deg)`;
+        };
+
+        parallaxContainer.addEventListener('mousemove', handleMouseMove);
+        parallaxContainer.addEventListener('mouseleave', handleMouseLeave);
+    }
 });

@@ -10,26 +10,25 @@
 
     <!-- 1. SEÇÃO HERO -->
     <section class="section hero">
-        <div class="container">
-            <!-- CORREÇÃO: Removidos parâmetros de vídeo desnecessários da URL da imagem -->
-            <picture>
+        <div class="container hero-grid">
+            <picture class="hero-logo-container">
                 <img src="https://i.ibb.co/21Pyccvz/LOGO-PNG.webp" alt="Logo Storymaker Evolution" class="logo-image">
             </picture>
-            <h1 class="main-headline">Aprenda a Faturar de R$1.000 a R$5.000 com a Nova Profissão do Digital</h1>
-            <h2 class="hero-subheadline">Vou te mostrar <strong> AO VIVO</strong> a maior Brecha do Digital em 2026 e te fazer ir <strong>do Zero ao Primeiro contrato</strong>, mesmo sendo totalmente iniciante.</h2>
-            
-            <!-- OTIMIZAÇÃO: Lazy-loading do vídeo do YouTube -->
-            <div class="video-container lazy-youtube" data-youtube-id="vRjXkX87aqA">
-                <!-- A thumbnail do vídeo será adicionada via CSS -->
-                <div class="play-button"></div>
+            <div class="hero-text-content">
+                <h1 class="main-headline">Aprenda a faturar de R$2.000 a R$8.000 gravando videos pelo Celular</h1>
+                <h2 class="hero-subheadline">Vou te mostrar <strong> AO VIVO</strong> a maior Brecha do Digital em 2026 e te fazer ir do<strong> Zero ao Primeiro contrato</strong>, mesmo sendo totalmente iniciante.</h2>
+
+                <div class="cta-group">
+                    <a href="#oferta" class="cta-button">Quero Participar da Imersão</a>
+                    <span class="cta-subtext">📆 29 de Novembro | às 15h</span>
+    
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill"></div>
+                        <span class="progress-bar-text"></span>
+                    </div>
+                </div>
             </div>
-
-            <a href="#oferta" class="cta-button">Quero Participar da Imersão</a>
-            <span class="cta-subtext">29 de Novembro | às 15h</span>
-
-            <div class="progress-bar-container">
-                <div class="progress-bar-fill"></div>
-                <span class="progress-bar-text"></span>
+            <div class="hero-image-content">
             </div>
         </div>
     </section>
@@ -38,18 +37,17 @@
     <section class="section about-storymaker-section">
         <div class="container">
             <h2 class="section-title">Mas afinal, o que faz esse tal de <span class="highlight">Storymaker?</span></h2>
-            <div class="about-storymaker-grid"> <!-- Este é o contêiner do grid -->
-                <div class="text-content"> <!-- Coluna de texto -->
+            <div class="about-storymaker-grid">
+                <div class="text-content">
                     <p>Um Storymaker não apenas grava vídeos curtos, ele transforma eventos em História Viva.</p>
                     <p>Enquanto o fotógrafo registra poses e o cinegrafista grava a cerimônia, o StoryMaker capta o que ninguém vê: </p>
                     <p><strong>As risadas no Making Of, o nervosismo antes de uma entrada, o abraço apertado da família, o olhar emocionado no altar ou a energia do palestrante.</strong></p>
                     <p>E acredite, em um mundo cada vez mais digital, as pessoas estão dispostas a pagar <strong> MUITO </strong>para guardar e exibir essa lembranças.</p>
                 </div>
-                <div class="image-content"> <!-- Coluna de imagem -->
-                    <!-- OTIMIZAÇÃO: Usando a tag <picture> para imagens responsivas e formato WebP -->
-                    <picture>
-                        <img src="https://i.ibb.co/4w8BR02W/FOTO-LARA-NOTIFICAC-A-O.webp" alt="Ilustração de um Storymaker criando uma narrativa visual">
-                    </picture>
+                <div class="image-stack-container">
+                    <img src="https://i.ibb.co/mFJfCFss/Whats-App-Image-2025-11-19-at-02-24-48.webp" alt="Storymaker em evento" class="stacked-image image-3">
+                    <img src="https://i.ibb.co/m5s93rFp/Whats-App-Image-2025-11-19-at-02-26-36.webp" alt="Storymaker em casamento" class="stacked-image image-2">
+                    <img src="https://i.ibb.co/VWwBkGrw/Whats-App-Image-2025-11-19-at-02-25-13.webp" alt="Storymaker em ação" class="stacked-image image-1">
                 </div>
             </div>
         </div>
@@ -95,6 +93,24 @@
                 </div>
             </div>
             <a href="#oferta" class="cta-button" style="margin-top: 60px;">QUERO APRENDER A FATURAR</a>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO MENTORA -->
+    <section class="section mentor-section">
+        <div class="container">
+            <h2 class="section-title">Quem será sua <span class="highlight">mentora?</span></h2>
+            <div class="mentor-grid">
+                <div class="mentor-image">
+                    <img src="https://i.ibb.co/C3KfpFDc/IMG-7334-1.webp" alt="Foto da mentora Lara">
+                </div>
+                <div class="mentor-text">
+                    <h3>Olá, eu sou a Lara!</h3>
+                    <p>Com mais de 4 anos de jornada no marketing digital, eu descobri no universo dos Storymakers uma paixão e, mais importante, um caminho para a verdadeira liberdade.</p>
+                    <p>Nos últimos anos, me especializei em transformar momentos em narrativas inesquecíveis, e foi essa habilidade que me permitiu conquistar não apenas minha independência financeira, mas também o controle total da minha rotina.</p>
+                    <p><strong>Agora, minha missão é te guiar.</strong> Quero te ensinar o passo a passo para que você também possa trilhar esse caminho, conquistar seus próprios clientes e construir uma vida com mais liberdade e propósito.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -181,7 +197,7 @@
         <div class="container">
             <h2 class="section-title">Garanta sua vaga <span class="highlight">agora</span></h2>
             <p class="section-subtitle">Aproveite antes que as vagas se esgotem</p>
-            <span class="scarcity-badge">1º LOTE: Restam 75 Vagas</span>
+            <span class="scarcity-badge">1º LOTE: Restam 74 Vagas</span>
             <div id="oferta" class="price-box">
                 <div class="event-date-badge">
                     <span class="month">Novembro</span>
@@ -214,6 +230,10 @@
         <div class="container">
             <h2 class="section-title">Perguntas <span class="highlight">Frequentes</span></h2>
             <div class="faq-item">
+                <button class="faq-question">As pessoas realmente pagam para gravar stories?</button>
+                <div class="faq-answer"><p>Eu também tinha essa dúvida. Mas lembre-se que as pessoas querem mostrar suas conquistas em grande estilo e guardar boas memórias de momentos íntimos da família. E isso vale Ouro! <strong> Lembrando que todas as notificações de pagamento e depoimentos de WhatsApp são de serviços reais que eu mesma prestei como Storymaker.</strong></p></div>
+            </div>
+            <div class="faq-item">
                 <button class="faq-question">Quando tempo terei acesso à imersão?</button>
                 <div class="faq-answer"><p>O acesso a gravação da imersão e a todos os bônus é vitalício.</p></div>
             </div>
@@ -240,10 +260,6 @@
             <div class="faq-item">
                 <button class="faq-question">Nunca fui fotógrafo nem sei editar vídeos, a imersão ainda é para mim?</button>
                 <div class="faq-answer"><p>Sim, com certeza! A imersão foi desenhada para te ensinar tudo do absoluto zero, desde as técnicas de gravação e edição até como encontrar e fechar com seus primeiros clientes. Não é necessário nenhum conhecimento prévio.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question">Por que alguém me pagaria para gravar stories?</button>
-                <div class="faq-answer"><p>Eu também tinha essa dúvida. Mas lembre-se que as pessoas querem cada vez mais mostrar suas conquistas em grande estilo e guardar boas memórias de momentos íntimos da família. E isso vale Ouro! <strong> Lembrando que todas as notificações de pagamento e depoimentos de WhatsApp são de serviços reais que eu mesma prestei como Storymaker.</strong></p></div>
             </div>
         </div>
     </section>
